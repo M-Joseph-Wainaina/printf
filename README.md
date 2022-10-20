@@ -35,10 +35,10 @@ TASK 3
 
 Handle the following conversion specifiers:
 
-u
-o
-x
-X
+	u
+	o
+	x
+	X
 You don’t have to handle the flag characters
 You don’t have to handle field width
 You don’t have to handle precision
@@ -68,17 +68,18 @@ TASK 7
 
 Handle the following flag characters for non-custom conversion specifiers:
 
-+
-space
-#
+	+
+	space
+	#
 
 TASK 8
 
 Handle the following length modifiers for non-custom conversion specifiers:
 
-l
-h
-Conversion specifiers to handle: d, i, u, o, x, X
+	l
+	h
+Conversion specifiers to handle: 
+	d, i, u, o, x, X
 
 TASK 9
 
@@ -100,13 +101,13 @@ TASK 13
 
 Handle the following custom conversion specifier:
 
-r : prints the reversed string
+	r : prints the reversed string
 
 TASK 14
 
 Handle the following custom conversion specifier:
 
-R: prints the rot13'ed string
+	R: prints the rot13'ed string
 
 TASK 15
 
