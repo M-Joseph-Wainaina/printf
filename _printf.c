@@ -7,12 +7,11 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int i;
 	char *str;
 	char *s;
-	int len;	
-
+	int len;
+	
+	str = NULL;
 	s = _strcpy(str, format);
 	len = printStr(s);
 	free(s);
