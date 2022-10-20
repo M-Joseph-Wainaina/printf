@@ -14,8 +14,11 @@ char* itostr(int);
 typedef struct fmt_identifier
 {
 	char fmt_char;
-	char *(*fmt_f)(char *, int, char);
+	char *(*fmt_f)(char *, int, va_list);
 } fmt_identifier;
-char *c_handler(char *, int, char);
+char *c_handler(char *, int, va_list);
+char *s_handler(char *, int, va_list);
+char *i_handler(char *, int, va_list);
+
 
 #endif /*_main_h_*/

@@ -13,7 +13,9 @@ int _printf(const char *format, ...)
 	char *s;
 	int len, i, j;
 	fmt_identifier fn_call[] = {
-		{'c', c_handler}
+		{'c', c_handler},
+		{'s', s_handler},
+		{'i', i_handler}, 
 	};
 	
 	va_start(args, format);
@@ -24,12 +26,12 @@ int _printf(const char *format, ...)
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < 1; j++)
+		for (j = 0; j < 3; j++)
 		{
 			if (s[i] == '%' && s[i + 1] == fn_call[j].fmt_char)
 			{
 
-				s = fn_call[j].fmt_f(s, i, va_arg(args, int));
+				s = fn_call[j].fmt_f(s, i, args);
 			}
 		}
 	}

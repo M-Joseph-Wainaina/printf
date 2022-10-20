@@ -7,7 +7,7 @@
  * Return: poiter to new space
  */
 
-char *c_handler(char *str, int i, char c)
+char *c_handler(char *str, int i, va_list args)
 {
 	int len;
 	char *c_h;
@@ -20,7 +20,7 @@ char *c_handler(char *str, int i, char c)
 	{
 		if (a == i)
 		{
-			c_h[a] = c;
+			c_h[a] = va_arg(args, int);
 			b += 1;
 			continue;
 		}
