@@ -29,7 +29,7 @@ char *itostr(int n)
 /**
  * _count - counts the length of an integer
  * @n: integer to be counted
- * Return: integer length 
+ * Return: integer length
  */
 
 int _count(int n)
@@ -40,7 +40,7 @@ int _count(int n)
 	len = 0;
 	i = 1;
 	while (n / i)
-	{	
+	{
 		len++;
 		i = _pow(1, len, 10);
 	}
@@ -48,9 +48,10 @@ int _count(int n)
 }
 
 /**
- * pow - powers inputs
+ * _pow - powers inputs
  * @base: base no
  * @exp: exponent value
+ * @power: result
  * Return: power
  */
 
@@ -62,4 +63,4 @@ int _pow(int power, int exp, int base)
 	}
 	power = power * base;
 	return (_pow(power, --exp, base));
-}		
+}

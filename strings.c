@@ -22,7 +22,7 @@ int _strlen(const char *str)
 
 /**
  * _strcpy - copies string source into dest
- * @source: string to be copied
+ * @src: string to be copied
  * @dest: destination
  * Return: copied string
  */
@@ -33,7 +33,7 @@ char *_strcpy(char *dest, const char *src)
 	int i;
 
 	len = _strlen(src);
-	
+
 	dest = malloc(sizeof(char) * len + 1);
 	if (dest == NULL)
 	{
