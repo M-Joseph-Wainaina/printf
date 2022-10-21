@@ -1,44 +1,82 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _printf - prints arguments passed to it
- * @format: string to be printed
- * Return: len
+ * check_for_specifiers - checks if there is a valid format specifier
+ * @format: possible format specifier
+ *
+ * Return: pointer to valid function or NULL
  */
-
-int _printf(const char *format, ...)
+static int (*check_for_specifiers(const char *format))(va_list)
 {
-	char *str;
-	va_list args;
-	char *s;
-	int len, i, j;
-	fmt_identifier fn_call[] = {
-		{'c', c_handler},
-		{'s', s_handler},
-		{'i', i_handler}, 
+	unsigned int i;
+	print_t p[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"i", print_i},
+		{"d", print_d},
+		{"u", print_u},
+		{"b", print_b},
+		{"o", print_o},
+		{"x", print_x},
+		{"X", print_X},
+		{"p", print_p},
+		{"S", print_S},
+		{"r", print_r},
+		{"R", print_R},
+		{NULL, NULL}
 	};
-	
-	va_start(args, format);
-	s = NULL;
-	str = NULL;
-	s = _strcpy(str, format);
-	len = _strlen(s);
 
-	for (i = 0; i < len; i++)
+	for (i = 0; p[i].t != NULL; i++)
 	{
-		for (j = 0; j < 3; j++)
+		if (*(p[i].t) == *format)
 		{
-			if (s[i] == '%' && s[i + 1] == fn_call[j].fmt_char)
-			{
-
-				s = fn_call[j].fmt_f(s, i, args);
-			}
+			break;
 		}
 	}
+	return (p[i].f);
+}
 
-	va_end(args);
-	len = printStr(s);
-	free(s);
+/**
+ * _printf - prints anything
+ * @format: list of argument types passed to the function
+ *
+ * Return: number of characters printed
+ */
+int _printf(const char *format, ...)
+{
+	unsigned int i = 0, count = 0;
+	va_list valist;
+	int (*f)(va_list);
 
-	return (len);
+	if (format == NULL)
+		return (-1);
+	va_start(valist, format);
+	while (format[i])
+	{
+		for (; format[i] != '%' && format[i]; i++)
+		{
+			_putchar(format[i]);
+			count++;
+		}
+		if (!format[i])
+			return (count);
+		f = check_for_specifiers(&format[i + 1]);
+		if (f != NULL)
+		{
+			count += f(valist);
+			i += 2;
+			continue;
+		}
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		count++;
+		if (format[i + 1] == '%')
+			i += 2;
+		else
+			i++;
+	}
+	va_end(valist);
+	return (count);
 }

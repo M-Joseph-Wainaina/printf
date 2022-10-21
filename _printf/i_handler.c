@@ -21,7 +21,7 @@ char *i_handler(char *str, int n, va_list args)
 	b = _strlen(str);
 	c_h = malloc(sizeof(char) * a + b);
 	
-	printf("%d %d\n", a , b);
+/*	printf("%d %d\n", a , b);*/
 	for (i = 0, j = 0; i < a + b;j++, i++)
 	{
 		c_h[i] = str[j];
@@ -32,6 +32,7 @@ char *i_handler(char *str, int n, va_list args)
 				c_h[i] = s[k];
 			}
 			j++;
+			i--;
 		}
 	}
 

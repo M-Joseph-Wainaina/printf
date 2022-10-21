@@ -30,6 +30,7 @@ char *s_handler(char *str, int n, va_list args)
 			{
 				c_h[i] = ptr[k];
 			}
+			i--;
 			j++;
 		}
 	}
