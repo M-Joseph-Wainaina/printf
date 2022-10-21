@@ -1,5 +1,5 @@
 # _printf
-```_printf``` is a custom implementation of the C programming function ```printf```. This project is an application of the C programming knowledge that [African Leadership Experiece SE](https://www.alxafrica.com/software-engineering-2022/) cohort 9 students have learned since starting the program on May 1, 2017.
+```_printf``` is a custom implementation of the C programming function ```printf```. This project is an application of the C programming knowledge that [African Leadership Experiece SE](https://www.alxafrica.com/software-engineering-2022/) cohort 9 students have learned since starting the program on August 18, 2022.
 
 **Prototype:** ```int _printf(const char *, ...);```
 
