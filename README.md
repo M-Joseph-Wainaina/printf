@@ -3,7 +3,7 @@
 
 **Prototype:** ```int _printf(const char *, ...);```
 
-## Examples
+**Examples**
 **String**
 * Input: ```_printf("%s\n", 'This is a string.');```
 * Output: ```This is a string.```
